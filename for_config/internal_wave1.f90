@@ -117,9 +117,9 @@ end subroutine set_coriolis
 subroutine set_topography
  use main_module
  implicit none
- kbot =1
  integer :: i,j
  real*8 :: alpha
+ kbot = 1
  alpha = 30*pi/180
  do i=is_pe,ie_pe
    do j=js_pe,je_pe
