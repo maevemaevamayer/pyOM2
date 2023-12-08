@@ -1,0 +1,14 @@
+#module purge
+#module load gcc/9.2.0 openmpi/4.1.4-gccsys
+#module load netcdf_fortran/4.6.0
+
+# fortran front end
+F90 = mpif90
+CDFFLAGS = -I$(NETCDF_INC) #-lnetcdff -lnetcdf -lnetcdf
+MPIFLAGS =
+F90FLAGS = $(NETCDF_LIB) -llapack -lblas -fconvert=big-endian -O3 -Wall #-check bounds
+
+# python front end
+#F2PYFLAGS = -llapack -lblas
+#F2PY_MPIFLAGS = -I$(mpi)/include $(mpi)/lib/libmpi_f77.so
+
