@@ -118,6 +118,8 @@ subroutine set_topography
  use main_module
  implicit none
  kbot =1
+ integer :: i,k
+ real*8 :: alpha
  alpha = 30*pi/180
  do i=is_pe,ie_pe
    do j=js_pe,je_pe
