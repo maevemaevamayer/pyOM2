@@ -124,9 +124,9 @@ subroutine set_topography
  real*8 :: alpha
  kbot = 1
  alpha = 30*pi/180
- do k=1,nz
-   do i=1,nx
-     if (k<(i-nx/2)*tan(alpha)) kbot(k,i)=0
+ do i=is_pe,ie_pe
+   do k=1,nz
+     if (k<=(i-nx/2)) kbot(i,k)=0
    enddo
  enddo
 end subroutine set_topography
