@@ -123,7 +123,9 @@ subroutine set_topography
  kbot = 1
  alpha = 30*pi/180
  do i=is_pe,ie_pe
-     if (i>nx/2) kbot(i,:)=nz-floor((i-nx/2)*tan(alpha))
+   do k=1,nz
+     if ((i>nx/2).and.((i-nx/2)*tan(alpha)>k)) kbot(i,:)=k
+   enddo
  enddo
 end subroutine set_topography
 
