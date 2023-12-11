@@ -124,7 +124,7 @@ subroutine set_topography
  alpha = 30*pi/180
  do i=is_pe,ie_pe
    do k=1,nz
-     if ((i>nx/2).and.((i-nx/2)>(nz-k))) kbot(i,:)=k
+     if (i>k) kbot(i,:)=k
    enddo
  enddo
 end subroutine set_topography
