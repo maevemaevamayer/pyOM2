@@ -125,8 +125,8 @@ subroutine set_topography
  kbot = 1
  alpha = 30*pi/180
  do i=is_pe,ie_pe
-   do j=js_pe,je_pe
-     if ((nz-j)<(i-nx/2)*tan(alpha)) kbot(i,j)=0
+   do k=1,nz
+     if ((nz-k)<(i-nx/2)*tan(alpha)) kbot(i,k)=0
    enddo
  enddo
 end subroutine set_topography
