@@ -45,7 +45,7 @@ subroutine set_parameter
   enable_tempsalt_sources = .true.
   enable_momentum_sources = .true.
 
-  runlen =  86400.0
+  runlen =  864.0!86400.0
   enable_diag_ts_monitor = .true.; ts_monint = 0.5!dt_mom
   enable_diag_snapshots  = .true.; snapint  = 5.0!dt_mom
 
@@ -123,7 +123,7 @@ subroutine set_topography
  alpha = 30*pi/180
  do i=is_pe,ie_pe
    do j=js_pe,je_pe
-     if (i>=nx/2.and.j<=(i-nx/2)*tan(alpha))  kbot(i,j)=0
+     if ((i>nx/2).and.(j<(i-nx/2)*tan(alpha))) kbot(i,j)=0
    enddo
  enddo
 end subroutine set_topography
