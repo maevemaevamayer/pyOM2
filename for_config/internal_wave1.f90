@@ -117,17 +117,13 @@ end subroutine set_coriolis
 subroutine set_topography
  use main_module
  use config_module
- use diagnostics_module
- use tke_module
  implicit none
  integer :: i,k
  real*8 :: alpha
  kbot = 1
  alpha = 30*pi/180
- do i=is_pe,ie_pe
-   do k=1,nz
-     if (k<=(i-nx/2)) kbot(i,k)=0
-   enddo
+ do i=is_pe-onx,ie_pe+onx
+     if (i>nx/2) kbot(i,:)=nz-floor((i-nx/2)*tan(alpha))
  enddo
 end subroutine set_topography
 
