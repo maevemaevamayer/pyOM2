@@ -115,9 +115,17 @@ subroutine set_coriolis
 end subroutine set_coriolis
 
 subroutine set_topography
- use main_module
- implicit none
- kbot = 1
+  use main_module
+  implicit none
+  integer :: i,k
+  real*8 :: alpha
+  kbot = 1
+  alpha = 30*pi/180
+  do i=is_pe-onx,ie_pe+onx
+    do k=1,nz
+      if ((i-nx/2)*tan(alpha)>=k) kbot(i,:)=k
+    enddo
+  enddo
 end subroutine set_topography
 
 
