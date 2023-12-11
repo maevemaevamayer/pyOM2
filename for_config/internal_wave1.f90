@@ -118,7 +118,7 @@ subroutine set_topography
  use main_module
  use config_module
  implicit none
- integer :: i
+ integer :: i,k
  real*8 :: alpha
  kbot = 1
  alpha = 30*pi/180
