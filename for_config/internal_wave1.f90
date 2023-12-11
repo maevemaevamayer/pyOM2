@@ -116,6 +116,11 @@ end subroutine set_coriolis
 
 subroutine set_topography
  use main_module
+
+ use config_module
+ use diagnostics_module
+ use tke_module
+ implicit none
  implicit none
  integer :: i,j
  real*8 :: alpha
@@ -123,7 +128,7 @@ subroutine set_topography
  alpha = 30*pi/180
  do i=is_pe,ie_pe
    do j=js_pe,je_pe
-     if (nz-j)<(i-nx/2)*tan(alpha) kbot(i,j)=0
+     if (nx-j)<(i-nx/2)*tan(alpha) kbot(i,j)=0
    enddo
  enddo
 end subroutine set_topography
