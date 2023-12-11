@@ -120,7 +120,7 @@ subroutine set_topography
  use diagnostics_module
  use tke_module
  implicit none
- integer :: i,j
+ integer :: i,k
  real*8 :: alpha
  kbot = 1
  alpha = 30*pi/180
