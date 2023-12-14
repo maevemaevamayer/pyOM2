@@ -7,8 +7,8 @@
 module config_module
  use main_module
  real*8 :: fac = 2.0
- real*8 :: N_0 = 0.7367!2*pi/10.
- real*8 :: OM0 = 0.7,x0!1./(1.5*10),x0
+ real*8 :: N_0 = 2*pi/10.
+ real*8 :: OM0 = 1./(1.5*10),x0
  real*8, allocatable :: t0(:,:,:),dt0(:,:,:,:),u0(:,:,:)
 end module config_module
 
